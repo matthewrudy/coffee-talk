@@ -1,6 +1,6 @@
 (function() {
-  var AdminUser, Child, CleverChild, Giraffe, Monkey, SuperAdminUser, User, blackHole, fortyTwo, hello, helloHello, me, notInterpolated, nothing, raffi, sayHello, sayOnce, sayThrice, superman, you;
-  var __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
+  var AdminUser, Child, CleverChild, Giraffe, Monkey, SuperAdminUser, User, blackHole, fortyTwo, hello, helloHello, maritalStatus, me, notInterpolated, nothing, places, raffi, sayHello, sayOnce, sayThrice, sayWord12, split, superman, you;
+  var __slice = Array.prototype.slice, __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
     for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
     function ctor() { this.constructor = child; }
     ctor.prototype = parent.prototype;
@@ -19,6 +19,37 @@
   };
   blackHole = function(input) {};
   nothing = function() {};
+  sayWord12 = function() {
+    var words;
+    words = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
+    return words[11];
+  };
+  places = function() {
+    var first, rest, second;
+    first = arguments[0], second = arguments[1], rest = 3 <= arguments.length ? __slice.call(arguments, 2) : [];
+    return "first:  " + first + "\nsecond: " + second + "\nreset:  " + rest;
+  };
+  split = function() {
+    var first, last, middle, _i;
+    first = arguments[0], middle = 3 <= arguments.length ? __slice.call(arguments, 1, _i = arguments.length - 1) : (_i = 1, []), last = arguments[_i++];
+    return "first was " + first;
+  };
+  maritalStatus = (function() {
+    switch (numberOfWives) {
+      case 0:
+        return "single";
+      case 1:
+        return "married";
+      case 2:
+        return "bigamist";
+      case 3:
+      case 4:
+      case 5:
+        return "polygamist";
+      default:
+        return "undefined";
+    }
+  })();
   hello = "hello";
   sayHello = "say " + hello;
   helloHello = "" + sayHello + " " + hello;

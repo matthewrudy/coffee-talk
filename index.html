@@ -102,6 +102,55 @@ nothing = ->
   </div>
   
   <div class="slide">
+    <h2>If Statements</h2>
+    <pre>
+# inline
+commitName = if pairing then pairName else myName
+
+# multiline
+hardcore = if commitCount > 1000
+  "definitely"
+else if nickname.leet()
+  "possibly"
+else
+  "no"
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>Case Statements</h2>
+    <pre>
+maritalStatus = switch numberOfWives
+  when 0 then "single"
+  when 1 then "married"
+  when 2 then "bigamist"
+  when 3,4,5 then "polygamist"
+  else "undefined"
+    </pre>
+  </div>
+  
+  <div class="slide">
+	  <h2>Splats</h2>
+	  <pre class="massive">
+# splat everything
+sayWords = (words...) ->
+  words.join(", ")
+  
+# splat at the end
+places = (first, second, rest...) ->
+  """
+  first:  #{first}
+  second: #{second}
+  reset:  #{rest}
+  """
+  
+# splat in the middle
+split = (first, middle..., last) ->
+  "first was #{first}"
+    </pre>
+  </div>
+  
+  <div class="slide">
 	  <h2>Ruby-style String Interpolation</h2>
 	  <pre class="massive">
 # "hello"
@@ -165,7 +214,8 @@ class CleverChild
 	  <pre class="massive">
 class Monkey
   # explicit assignment
-  constructor: (food) -> @favouriteFood = food 
+  constructor: (food) -> 
+    @favouriteFood = food 
   
 me = new Monkey "Banana"
 me.favouriteFood # "Banana"
@@ -176,6 +226,38 @@ class Giraffe
   
 you = new Giraffe "Leaves"
 you.favouriteFood # "Leaves"
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>The "Existential Operator"</h2>
+    <pre>
+      # value.present?
+      value?
+
+      # value || default
+      value ? default
+
+      # value ||= default
+      value ?= default
+      
+      # value && value.someMethod
+      value?.someMethod()
+    </pre>
+  </div>
+  
+  <div class="slide">
+	  <h2>A load of other cools stuff</h2>
+	  <pre class="massive">
+# chained comparisons
+isTeenager = (age) -> 20 > age > 12
+
+# multiple assignment
+[a,b] = [1,2]
+
+# monkeypatching
+Array::sum = ->
+  this.replace /_/g, "-"
     </pre>
   </div>
     

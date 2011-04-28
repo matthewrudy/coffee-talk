@@ -16,6 +16,29 @@ blackHole = (input)->
 # with nothing
 nothing = ->
 
+# splat everything
+sayWord12 = (words...) ->
+  words[11]
+  
+# splat at the end
+places = (first, second, rest...) ->
+  """
+  first:  #{first}
+  second: #{second}
+  reset:  #{rest}
+  """
+  
+# splat in the middle
+split = (first, middle..., last) ->
+  "first was #{first}"
+
+maritalStatus = switch numberOfWives
+  when 0 then "single"
+  when 1 then "married"
+  when 2 then "bigamist"
+  when 3,4,5 then "polygamist"
+  else "undefined"
+
 # "hello"
 hello = "hello"
 
