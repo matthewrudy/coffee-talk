@@ -130,6 +130,20 @@ maritalStatus = switch numberOfWives
   </div>
   
   <div class="slide">
+    <h2>List Comprehensions</h2>
+    <pre>
+# kind of like map
+("Mrs #{name}" for name in ["A", "B", "C"])
+
+# but we can step it
+(n*n for n in [2..10] by 2)
+
+# or guard it
+(n*n for n in [1..10] when n%2==0)
+    </pre>
+  </div>
+  
+  <div class="slide">
 	  <h2>Splats</h2>
 	  <pre class="massive">
 # splat everything
