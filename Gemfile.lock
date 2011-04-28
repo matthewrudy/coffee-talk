@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    rack (1.2.2)
+    serve-this (0.0.2)
+      rack
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  serve-this
