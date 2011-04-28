@@ -246,17 +246,17 @@ you.favouriteFood # "Leaves"
   <div class="slide">
     <h2>The "Existential Operator"</h2>
     <pre>
-      # value.present?
-      value?
+# value.present?
+value?
 
-      # value || default
-      value ? default
+# value || default
+value ? default
 
-      # value ||= default
-      value ?= default
-      
-      # value && value.someMethod
-      value?.someMethod()
+# value ||= default
+value ?= default
+
+# value && value.someMethod
+value?.someMethod()
     </pre>
   </div>
   
@@ -272,6 +272,10 @@ isTeenager = (age) -> 20 > age > 12
 # monkeypatching
 String::dasherize = ->
   this.replace /_/g, "-"
+  
+# argument defaults
+speakTo = (person, say="Hello") ->
+  "#{say} #{person}"
     </pre>
   </div>
   
