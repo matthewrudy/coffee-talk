@@ -69,5 +69,47 @@
 	  <h1 class="incremental">The Drink</h1>
 	</div>
 	
+	<div class="slide">
+	  <h1>What is Coffee?</h1>
+	  <h2>A programming language</h2>
+	</div>
+	
+	<div class="slide">
+	  <h1>Key Features</h1>
+  </div>
+  
+  <div class="slide">
+	  <h2>1. Classes</h2>
+	  <pre>
+class User
+  # just set the variable
+  constructor: (@firstName, @lastName) ->
+
+  # single line method
+  fullName: -> "#{@firstName} #{@lastName}"
+
+  # multi line method
+  pairingName: (other) ->
+    pair = fullName()
+    if other
+      pair += " #{other}"
+    pair
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>2. Inheritance</h2>
+    <pre>
+class User
+  constructor: (@firstName, @lastName) ->
+
+class AgedUser extends User
+  constructor: (@age, others...) -> super(others...)
+    </pre>
+  </div>
+    
+	  
+	  
+	
 </body>
 </html>
