@@ -1,5 +1,5 @@
 (function() {
-  var AdminUser, Child, CleverChild, Giraffe, Monkey, SuperAdminUser, User, blackHole, fortyTwo, hello, helloHello, maritalStatus, me, notInterpolated, nothing, places, raffi, sayHello, sayOnce, sayThrice, sayWord12, split, superman, you;
+  var AdminUser, Child, CleverChild, Giraffe, Gobby, Monkey, SuperAdminUser, User, blackHole, fortyTwo, hello, helloHello, maritalStatus, me, notInterpolated, nothing, places, raffi, sayHello, sayOnce, sayThrice, sayWord12, split, superman, you;
   var __slice = Array.prototype.slice, __hasProp = Object.prototype.hasOwnProperty, __extends = function(child, parent) {
     for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; }
     function ctor() { this.constructor = child; }
@@ -109,4 +109,18 @@
   })();
   you = new Giraffe("Leaves");
   you.favouriteFood;
+  Gobby = (function() {
+    function Gobby(name) {
+      this.name = name;
+    }
+    Gobby.prototype.speak = function() {
+      return alert("I am " + name);
+    };
+    return Gobby;
+  })();
+  $(document).ready(function() {
+    var gobby;
+    gobby = new Gobby("Jobby");
+    return gobby.speak();
+  });
 }).call(this);

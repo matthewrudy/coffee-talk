@@ -96,3 +96,12 @@ class Giraffe
 
 you = new Giraffe "Leaves"
 you.favouriteFood # "Leaves"
+
+class Gobby
+  constructor: (@name) ->
+  
+  speak: -> alert("I am #{name}")
+  
+$(document).ready ->
+  gobby = new Gobby "Jobby"
+  gobby.speak()

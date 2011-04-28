@@ -285,6 +285,71 @@ String::dasherize = ->
     <h2>This is all turned into (sometimes nasty) Javascript</h2>
     <p class="incremental">cue: looking at the previous code, once translated</p>
   </div>
+  
+  <div class="slide">
+    <h1>Using it in Rails</h1>
+    <a href="https://gist.github.com/923998">https://gist.github.com/923998</a>
+  </div>
+  
+  <div class="slide">
+    <h2>Gemfile</h2>
+    <pre>
+gem 'coffee-script'
+gem 'yui-compressor', :require => 'yui/compressor'
+gem 'json'
+gem 'sprockets'
+	  </pre>
+	</div>
 	
+	<div class="slide">
+	  <h2>Initializer</h2>
+	  <pre>
+class AssetServer < Sprockets::Environment
+  include Singleton
+
+  def initialize
+    super Rails.root.join('app', 'assets')
+    paths << 'javascripts'
+    if Rails.env.production?
+      self.js_compressor = YUI::JavaScriptCompressor.new :munge => true, :optimize => true
+    end
+  end
+
+end
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>Routes</h2>
+    <pre>
+CoffeeExample::Application.routes.draw do
+  root :to => "home#index"
+
+  # Mount the rack end-point for JavaScript.
+  mount AssetServer.instance => '/assets'
+end
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>app/assets/javascripts</h2>
+    <pre>
+# application.js
+//= require jquery
+//= require jquery_ujs
+//= require_tree .
+
+# some.coffee
+class Gobby
+  constructor: (@name) ->
+  
+  speak: -> alert("I am #{name}")
+  
+$(document).ready ->
+  gobby = new Gobby "Jobby"
+  gobby.speak()
+  
+    </pre>
+  </div>
 </body>
 </html>
