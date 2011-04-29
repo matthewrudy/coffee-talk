@@ -30,7 +30,10 @@
 	    font-size : 1.0em;
 	  }
 	  .slide pre.smaller {
-	    font-size : 0.5em;
+	    font-size : 0.75em;
+	  }
+	  .slide pre.smallest {
+	    font-size : 0.3em;
 	  }
 	  h1 {
 	    font-size : 2.5em;
@@ -355,5 +358,198 @@ $(document).ready ->
   
     </pre>
   </div>
+  
+  <div class="slide">
+    <h1>Examples</h1>
+  </div>
+  
+  <div class="slide">
+    <h2>Original</h2>
+    <pre>
+var CURRENCIES = {
+  HKD: {
+    num: 344,
+    e: 2,
+    currency: "Hong Kong dollar"
+  },
+  SGD: {
+    num: 702,
+    e: 2, 
+    currency: "Singapore dollar"
+  }
+};
+
+function find_currency(code) {
+  return CURRENCIES[code];
+}
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>Coffee</h2>
+    <pre>
+CURRENCIES =
+  HKD:
+    num: 344
+    e: 2
+    currency: "Hong Kong dollar"
+  SGD:
+    num: 702
+    e: 2
+    currency: "Singpore dollar"
+
+findCurrency = (code) ->
+  CURRENCIES[code]
+    </pre>
+  </div>
+  
+  <div class="slide">
+    <h2>Generated</h2>
+    <pre>
+var CURRENCIES, findCurrency;
+CURRENCIES = {
+  HKD: {
+    num: 344,
+    e: 2,
+    currency: "Hong Kong dollar"
+  },
+  SGD: {
+    num: 702,
+    e: 2,
+    currency: "Singpore dollar"
+  }
+};
+
+findCurrency = function(code) {
+  return CURRENCIES[code];
+};
+    </pre>
+  </div>
+    
+  <div class="slide">
+    <h2>Original</h2>
+    <pre>
+$(document).ready( function(){
+    $(".slider").each(function() {
+      var slideContainer = $(this);
+      
+      var slideClicker = slideContainer.find(".slide_label");
+      var slideBody    = slideContainer.find(".slide_body");
+      
+      // if javascript is enabled we'll hide the body
+      slideContainer.find(".slide_body").css({"display": "none"});
+
+      slideClicker.click(function() {
+        slideBody.toggle();
+      });
+    });
+});
+    </pre>
+  </div>
+
+  <div class="slide">
+    <h2>Coffee</h2>
+    <pre>
+$(document).ready ->
+  $(".slider").each ->
+    slideContainer = $(this)
+
+    slideClicker = slideContainer.find(".slide_label")
+    slideBody    = slideContainer.find(".slide_body")
+
+    slideContainer.find(".slide_body").css display: "none"
+    slideClicker.click ->
+      slideBody.toggle()
+    </pre>
+  </div>
+
+  <div class="slide">
+    <h2>Generated</h2>
+    <pre>
+$(document).ready(function() {
+  return $(".slider").each(function() {
+    var slideBody, slideClicker, slideContainer;
+    slideContainer = $(this);
+    slideClicker = slideContainer.find(".slide_label");
+    slideBody = slideContainer.find(".slide_body");
+    slideContainer.find(".slide_body").css({
+      display: "none"
+    });
+    return slideClicker.click(function() {
+      return slideBody.toggle();
+    });
+  });
+});
+    </pre>
+  </div>
+  
+  
+  <div class="slide">
+    <h2>Coffee</h2>
+    <pre class="smaller">
+SPIES = [
+  {name: "Matthew", spy: no}
+  {name: "Steve",   spy: yes}
+  {name: "Eddie",   spy: no}
+]
+
+Array::detect = (func) ->
+  for element in this
+    if func(element)
+      return element
+
+Array::select = (func) ->
+  (element for element in this when func(element))
+
+theSpy   = SPIES.detect (person) -> person.spy == true
+nonSpies = SPIES.select (person) -> person.spy != true
+    </pre>
+  </div>
+
+  <div class="slide">
+    <h2>Generated</h2>
+    <pre class="smallest">
+var SPIES, nonSpies, theSpy;
+SPIES = [
+  {
+    name: "Matthew",
+    spy: false
+  }, {
+    name: "Steve",
+    spy: true
+  }, {
+    name: "Eddie",
+    spy: false
+  }
+];
+Array.prototype.detect = function(func) {
+  var element, _i, _len;
+  for (_i = 0, _len = this.length; _i < _len; _i++) {
+    element = this[_i];
+    if (func(element)) {
+      return element;
+    }
+  }
+};
+Array.prototype.select = function(func) {
+  var element, _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = this.length; _i < _len; _i++) {
+    element = this[_i];
+    if (func(element)) {
+      _results.push(element);
+    }
+  }
+  return _results;
+};
+theSpy = SPIES.detect(function(person) {
+  return person.spy === true;
+});
+nonSpies = SPIES.select(function(person) {
+  return person.spy !== true;
+});
+    </pre>
+  </div>
+  
 </body>
 </html>
