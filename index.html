@@ -318,7 +318,10 @@ class AssetServer < Sprockets::Environment
     super Rails.root.join('app', 'assets')
     paths << 'javascripts'
     if Rails.env.production?
-      self.js_compressor = YUI::JavaScriptCompressor.new :munge => true, :optimize => true
+      self.js_compressor = YUI::JavaScriptCompressor.new(
+        :munge => true,
+        :optimize => true
+      )
     end
   end
 
